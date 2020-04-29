@@ -1,0 +1,124 @@
+html,
+body {
+  height: 100%;
+  background: #000000;
+  margin: 0;
+  padding: 0;
+}
+.header {
+  list-style-type: none;
+  margin: 0;
+  background: #546e7a;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+.header a {
+  display: block;
+  color: white;
+  padding: 1rem;
+  text-decoration: none;
+}
+.header a:hover {
+  background: #37474f;
+}
+ul.flex_container {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex_container.first_row li {
+  width: 220px;
+  flex-grow: 1;
+}
+.flex_container.second_row li {
+  width: 180px;
+  height: 544px;
+  flex-grow: 1;
+}
+.flex_container.third_row li {
+  width: 150px;
+  flex-grow: 1;
+}
+.flex_container li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.flex_container li {
+  position: relative;
+  cursor: pointer;
+}
+.flex_container li:hover::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background: rgb(199, 196, 196);
+  background: linear-gradient(
+    90deg,
+    rgba(199, 196, 196, 0.4472163865546218) 0%,
+    rgba(156, 122, 151, 0.3575805322128851) 95%
+  );
+}
+ul.flex_container li span.photo_description {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+  z-index: 15;
+  font-size: 20px;
+  font: Brush Script MT;
+  background: #dedede;
+  padding: 0 10px;
+  color: #000000;
+  opacity: 0;
+}
+ul.flex_container li:hover span.photo_description {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .first_row li,
+  .second_row li,
+  .third_row li {
+    width: 150px;
+    flex-grow: 1;
+  }
+  .header {
+    flex-flow: column wrap;
+  }
+  .header a {
+    text-align: left;
+    border-top: 0.5px solid #263238;
+    border-bottom: 0.5px solid #263238;
+  }
+  .header li:last-of-type a {
+    border-bottom: none;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .second_row li,
+  .third_row li {
+    width: 250px;
+    flex-grow: 1;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .header {
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .second_row li,
+  .third_row li {
+    width: 300px;
+    flex-grow: 1;
+  }
+}
